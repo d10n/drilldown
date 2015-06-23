@@ -2,7 +2,19 @@
 // simple nevernull alternative
 'use strict';
 
-var _ = require('lodash');
+var isFunction = (function() {
+    // Thanks to underscore for identifying typeof bugs
+    var regexTypeofIsCorrect = typeof /./ !== 'function';
+    var int8ArrayTypeofIsCorrect = typeof Int8Array !== 'object';
+    if (regexTypeofIsCorrect && int8ArrayTypeofIsCorrect) {
+        return function(obj) {
+            return typeof obj === 'function' || false;
+        };
+    }
+    return function(obj) {
+        return Object.prototype.toString.call(obj) === '[object Function]';
+    };
+})();
 
 /**
  * drilldown
@@ -54,7 +66,7 @@ function dd(object, _context, _key) {
         return dd(object && object[key], object, key);
     };
     drill.val = object;
-    drill.exists = !_.isUndefined(object);
+    drill.exists = object !== undefined;
     drill.set = function(value) {
         if (drill.exists) {
             _context[_key] = value;
@@ -62,7 +74,7 @@ function dd(object, _context, _key) {
             return value;
         }
     };
-    drill.func = _.isFunction(object) ? object : console.log.bind(null, 'dd', object);
+    drill.func = isFunction(object) ? object : console.log.bind(null, 'dd', object);
     return drill;
 }
 
