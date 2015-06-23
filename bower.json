@@ -1,0 +1,21 @@
+{
+  "name": "drilldown",
+  "main": "dist/drilldown.js",
+  "version": "0.0.0",
+  "homepage": "https://github.com/d10n/drilldown",
+  "description": "Safely accesses deeply nested properties of objects",
+  "moduleType": [
+    "amd"
+  ],
+  "authors": [
+    "d10n <david@bitinvert.com>"
+  ],
+  "license": "ISC",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
