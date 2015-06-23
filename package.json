@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/d10n/drilldown/issues"
   },
-  "homepage": "https://github.com/d10n/drilldown"
+  "homepage": "https://github.com/d10n/drilldown",
+  "dependencies": {
+    "lodash": "^3.9.3"
+  }
 }
