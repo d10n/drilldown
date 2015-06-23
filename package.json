@@ -1,0 +1,19 @@
+{
+  "name": "drilldown",
+  "version": "0.0.0",
+  "description": "Safely accesses deeply nested properties of objects",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --require mocha-helper.js --recursive src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/d10n/drilldown.git"
+  },
+  "author": "d10n <david@bitinvert.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/d10n/drilldown/issues"
+  },
+  "homepage": "https://github.com/d10n/drilldown"
+}
