@@ -18,5 +18,8 @@
   "homepage": "https://github.com/d10n/drilldown",
   "dependencies": {
     "lodash": "^3.9.3"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0"
   }
 }
