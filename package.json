@@ -20,6 +20,7 @@
     "lodash": "^3.9.3"
   },
   "devDependencies": {
+    "browserify": "^10.2.4",
     "gulp": "^3.9.0",
     "gulp-mocha": "^2.1.2",
     "gulp-rename": "^1.2.2",
