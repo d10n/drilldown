@@ -19,6 +19,7 @@ describe('drilldown', function() {
                     pong: true
                 }
             },
+            '[id.local]': 1,
             person: {
                 x: 0,
                 y: 0,
@@ -62,6 +63,13 @@ describe('drilldown', function() {
     it('should indicate whether a property exists', function() {
         expect(dd(example)('foo').exists).to.be.true();
         expect(dd(example)('oof').exists).to.be.false();
+    });
+    it('should work with dots and brackets in property names', function() {
+        var idLocal = dd(example)('[id.local]');
+        var originalIdLocal = example['[id.local]'];
+        expect(idLocal.val).to.equal(originalIdLocal);
+        expect(idLocal.update(originalIdLocal + 1)).to.equal(originalIdLocal + 1);
+        expect(idLocal('subId').update(originalIdLocal + 2)).to.be.undefined();
     });
     it('should not drill into own properties', function() {
         expect(dd(example)('__proto__').exists).to.be.false();
