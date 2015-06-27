@@ -4,6 +4,7 @@ var gulp = require('gulp');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 var mocha = require('gulp-mocha');
+var istanbul = require('gulp-istanbul');
 var browserify = require('browserify');
 var buffer = require('vinyl-buffer');
 var source = require('vinyl-source-stream');
@@ -14,6 +15,19 @@ gulp.task('test', function() {
         .pipe(mocha({
             require: [path.resolve('./mocha-helper.js')]
         }));
+});
+
+gulp.task('coverage', function() {
+    return gulp.src(['./src/**/*.js', '!./src/**/*-spec.js'])
+        .pipe(istanbul())
+        .pipe(istanbul.hookRequire())
+        .on('finish', function() {
+            gulp.src(['./src/**/*-spec.js'])
+                .pipe(mocha({
+                    require: [path.resolve('./mocha-helper.js')]
+                }))
+                .pipe(istanbul.writeReports())
+        });
 });
 
 gulp.task('browserify', function() {
