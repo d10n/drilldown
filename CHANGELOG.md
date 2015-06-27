@@ -8,6 +8,7 @@ Change Log
 ### Changed
  * Renamed `set` to `update` (to possibly make room for a new `set`)
  * Renamed `func` to `invoke` (slightly more obvious API)
+ * You can now only drill into own properties
 
 
 ## [0.0.1] - 2014-06-23
