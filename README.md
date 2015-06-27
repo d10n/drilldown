@@ -8,6 +8,7 @@ Safely accesses deep properties of objects.
 // bower install drilldown
 var dd = require('drilldown');
 ```
+Strict version locking is recommended during release 0.0.x
 
 Ever run into this?
 ```JavaScript
@@ -65,5 +66,3 @@ Available dd properties:
  * exists - true if val is defined
  * update function(value) - sets the value if the value exists
  * invoke - the value if the value is a function, or else a dummy function
-
-Version locking is recommended during release 0.0.x
