@@ -38,24 +38,26 @@ var isFunction = (function() {
  *
  * Safely call functions:
  * var foo = {abc: {addOne: function(x) { return x + 1; }}};
- * dd(foo)('abc')('addOne').func(5); returns 6
- * dd(foo)('zzz')('aaa').func(5); returns undefined
+ * dd(foo)('abc')('addOne').invoke(5); returns 6
+ * dd(foo)('zzz')('aaa').invoke(5); returns undefined
  *
  * Set values if the original value exists:
  * var foo = {abc: {def: {ghi: 'jkl'}}};
  * var newValue = {ping: 'pong'};
- * dd(foo)('abc')('def').set(newValue);
+ * dd(foo)('abc')('def').update(newValue);
  *   - foo is now {abc: {def: {ping: 'pong'}}}
  *   - {ping: 'pong'} is returned
- * dd(foo)('abc')('zzz').set(5);
+ * dd(foo)('abc')('zzz').update(5);
  *   - foo is unchanged
  *   - undefined is returned
+ *
+ * To prevent confusion, only own properties are drilled into.
  *
  * Available properties:
  *  - val - the value
  *  - exists - true if val is defined
- *  - set function(value) - sets the value if the value exists
- *  - func - the value if the value is a function, or else a dummy function
+ *  - update function(value) - sets the value if the value exists
+ *  - invoke - the value if the value is a function, or else a dummy function
  *
  * @param {object} object
  * @param _context
@@ -64,18 +66,24 @@ var isFunction = (function() {
  */
 function dd(object, _context, _key) {
     var drill = function(key) {
-        return dd(object && object[key], object, key);
+        var nextObject = (
+            object &&
+            object.hasOwnProperty(key) &&
+            object[key] ||
+            undefined
+        );
+        return dd(nextObject, object, key);
     };
     drill.val = object;
     drill.exists = object !== undefined;
-    drill.set = function(value) {
+    drill.update = function(value) {
         if (drill.exists) {
             _context[_key] = value;
             drill.val = value;
             return value;
         }
     };
-    drill.func = isFunction(object) ? object : console.log.bind(null, 'dd', object);
+    drill.invoke = isFunction(object) ? object.bind(_context) : console.log.bind(null, 'dd', object);
     return drill;
 }
 
