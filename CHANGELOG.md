@@ -1,6 +1,12 @@
 Change Log
 ==========
 
+## [0.0.3] - 2014-06-27
+### Added
+ * Bring `set` back with a deprecation warning
+ * Bring `func` back with a deprecation warning
+
+
 ## [0.0.2] - 2014-06-27
 ### Added
  * Coverage gulp task
@@ -14,7 +20,8 @@ Change Log
 ## [0.0.1] - 2014-06-23
 Initial release
 
-[unreleased]: https://github.com/d10n/drilldown/compare/v0.0.2...HEAD
+[unreleased]: https://github.com/d10n/drilldown/compare/v0.0.3...HEAD
+[0.0.3]: https://github.com/d10n/drilldown/compare/v0.0.2...v0.0.3
 [0.0.2]: https://github.com/d10n/drilldown/compare/v0.0.1...v0.0.2
 [0.0.1]: https://github.com/d10n/drilldown/compare/fc09a25...v0.0.1
 
