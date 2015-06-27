@@ -58,14 +58,14 @@ describe('drilldown', function() {
     it('should call functions which exist', function() {
         var exampleBar = dd(example)('bar');
         var arg = 'string argument';
-        exampleBar.func(arg);
+        exampleBar.invoke(arg);
         expect(exampleBar.val.calledWith(arg)).to.be.true();
     });
     xit('should call the stub function for functions which do not exist', function() {
         var exampleBar = dd(example)('bar')('zzzz');
         sinon.spy(console, 'log');  // FIXME spying on console.log interferes with must
         var arg = 'string argument';
-        exampleBar.func(arg);
+        exampleBar.invoke(arg);
         expect(console.log.called).to.be.true();
         console.log.restore();
     });

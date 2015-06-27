@@ -35,8 +35,8 @@ dd(foo)('abc')(0)('bar') is 'def'
 Safely call functions:
 ```JavaScript
 var foo = {abc: {addOne: function(x) { return x + 1; }}};
-dd(foo)('abc')('addOne').func(5); returns 6
-dd(foo)('zzz')('aaa').func(5); returns undefined
+dd(foo)('abc')('addOne').invoke(5); returns 6
+dd(foo)('zzz')('aaa').invoke(5); returns undefined
 ```
 
 Set values if the original value exists:
@@ -57,6 +57,6 @@ Available dd properties:
  * val - the value
  * exists - true if val is defined
  * set function(value) - sets the value if the value exists
- * func - the value if the value is a function, or else a dummy function
+ * invoke - the value if the value is a function, or else a dummy function
 
 Version locking is recommended during release 0.0.x

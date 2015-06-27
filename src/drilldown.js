@@ -37,8 +37,8 @@ var isFunction = (function() {
  *
  * Safely call functions:
  * var foo = {abc: {addOne: function(x) { return x + 1; }}};
- * dd(foo)('abc')('addOne').func(5); returns 6
- * dd(foo)('zzz')('aaa').func(5); returns undefined
+ * dd(foo)('abc')('addOne').invoke(5); returns 6
+ * dd(foo)('zzz')('aaa').invoke(5); returns undefined
  *
  * Set values if the original value exists:
  * var foo = {abc: {def: {ghi: 'jkl'}}};
@@ -54,7 +54,7 @@ var isFunction = (function() {
  *  - val - the value
  *  - exists - true if val is defined
  *  - set function(value) - sets the value if the value exists
- *  - func - the value if the value is a function, or else a dummy function
+ *  - invoke - the value if the value is a function, or else a dummy function
  *
  * @param {object} object
  * @param _context
@@ -74,7 +74,7 @@ function dd(object, _context, _key) {
             return value;
         }
     };
-    drill.func = isFunction(object) ? object : console.log.bind(null, 'dd', object);
+    drill.invoke = isFunction(object) ? object : console.log.bind(null, 'dd', object);
     return drill;
 }
 
