@@ -45,17 +45,17 @@ describe('drilldown', function() {
     it('should be able to access array indices', function() {
         expect(dd(example)('baz')(1)('name').val).to.equal(example.baz[1].name);
     });
-    it('should be able to change the value of a deeply-nested property', function() {
+    it('should be able to update the value of a deeply-nested property', function() {
         var originalValue = example.quux.ping.pong;
         expect(dd(example)('quux')('ping')('pong').val).to.equal(originalValue);
         var newValue = false;
-        var newResult = dd(example)('quux')('ping')('pong').set(newValue);
+        var newResult = dd(example)('quux')('ping')('pong').update(newValue);
         expect(newResult).to.equal(newValue);
         expect(example.quux.ping.pong).to.equal(newValue);
     });
-    it('should not change the value of a nonexistent property', function() {
+    it('should not update the value of a nonexistent property', function() {
         var original = _.cloneDeep(example);
-        var newResult = dd(example)('quux')('abc')('xyz').set(5);
+        var newResult = dd(example)('quux')('abc')('xyz').update(5);
         expect(example).to.eql(original);
         expect(newResult).to.be.undefined();
     });

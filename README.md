@@ -44,11 +44,11 @@ Set values if the original value exists:
 var foo = {abc: {def: {ghi: 'jkl'}}};
 var newValue = {ping: 'pong'};
 
-dd(foo)('abc')('def').set(newValue);
+dd(foo)('abc')('def').update(newValue);
 //  - foo is now {abc: {def: {ping: 'pong'}}}
 //  - {ping: 'pong'} is returned
 
-dd(foo)('abc')('zzz').set(5);
+dd(foo)('abc')('zzz').update(5);
 //  - foo is unchanged
 //  - undefined is returned
 ```
@@ -56,7 +56,7 @@ dd(foo)('abc')('zzz').set(5);
 Available dd properties:
  * val - the value
  * exists - true if val is defined
- * set function(value) - sets the value if the value exists
+ * update function(value) - sets the value if the value exists
  * invoke - the value if the value is a function, or else a dummy function
 
 Version locking is recommended during release 0.0.x

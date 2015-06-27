@@ -43,17 +43,17 @@ var isFunction = (function() {
  * Set values if the original value exists:
  * var foo = {abc: {def: {ghi: 'jkl'}}};
  * var newValue = {ping: 'pong'};
- * dd(foo)('abc')('def').set(newValue);
+ * dd(foo)('abc')('def').update(newValue);
  *   - foo is now {abc: {def: {ping: 'pong'}}}
  *   - {ping: 'pong'} is returned
- * dd(foo)('abc')('zzz').set(5);
+ * dd(foo)('abc')('zzz').update(5);
  *   - foo is unchanged
  *   - undefined is returned
  *
  * Available properties:
  *  - val - the value
  *  - exists - true if val is defined
- *  - set function(value) - sets the value if the value exists
+ *  - update function(value) - sets the value if the value exists
  *  - invoke - the value if the value is a function, or else a dummy function
  *
  * @param {object} object
@@ -67,7 +67,7 @@ function dd(object, _context, _key) {
     };
     drill.val = object;
     drill.exists = object !== undefined;
-    drill.set = function(value) {
+    drill.update = function(value) {
         if (drill.exists) {
             _context[_key] = value;
             drill.val = value;
