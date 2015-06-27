@@ -18,6 +18,14 @@ describe('drilldown', function() {
                 ping: {
                     pong: true
                 }
+            },
+            person: {
+                x: 0,
+                y: 0,
+                move: function(dx, dy) {
+                    this.x += dx;
+                    this.y += dy;
+                }
             }
         };
     });
@@ -60,6 +68,14 @@ describe('drilldown', function() {
         var arg = 'string argument';
         exampleBar.invoke(arg);
         expect(exampleBar.val.calledWith(arg)).to.be.true();
+    });
+    it('should call functions which exist with this', function() {
+        var exampleWalk = dd(example)('person')('move');
+        sinon.spy(exampleWalk, 'invoke');
+        exampleWalk.invoke(3, 4);
+        expect(example.person.x).to.equal(3);
+        expect(example.person.y).to.equal(4);
+        expect(exampleWalk.invoke.calledWith(3, 4)).to.be.true();
     });
     xit('should call the stub function for functions which do not exist', function() {
         var exampleBar = dd(example)('bar')('zzzz');
