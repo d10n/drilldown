@@ -53,6 +53,8 @@ dd(foo)('abc')('zzz').update(5);
 //  - undefined is returned
 ```
 
+To prevent confusion, only own properties are drilled into.
+
 Available dd properties:
  * val - the value
  * exists - true if val is defined

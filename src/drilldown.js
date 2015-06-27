@@ -50,6 +50,8 @@ var isFunction = (function() {
  *   - foo is unchanged
  *   - undefined is returned
  *
+ * To prevent confusion, only own properties are drilled into.
+ *
  * Available properties:
  *  - val - the value
  *  - exists - true if val is defined
@@ -63,7 +65,13 @@ var isFunction = (function() {
  */
 function dd(object, _context, _key) {
     var drill = function(key) {
-        return dd(object && object[key], object, key);
+        var nextObject = (
+            object &&
+            object.hasOwnProperty(key) &&
+            object[key] ||
+            undefined
+        );
+        return dd(nextObject, object, key);
     };
     drill.val = object;
     drill.exists = object !== undefined;

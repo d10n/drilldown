@@ -63,6 +63,12 @@ describe('drilldown', function() {
         expect(dd(example)('foo').exists).to.be.true();
         expect(dd(example)('oof').exists).to.be.false();
     });
+    it('should not drill into own properties', function() {
+        expect(dd(example)('__proto__').exists).to.be.false();
+        expect(dd(example)('__proto__')('hasOwnProperty').exists).to.be.false();
+        expect(dd(Object)('prototype').exists).to.be.true();
+        expect(dd(Object)('__proto__').exists).to.be.false();
+    });
     it('should call functions which exist', function() {
         var exampleBar = dd(example)('bar');
         var arg = 'string argument';
