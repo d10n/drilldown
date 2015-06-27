@@ -58,3 +58,5 @@ Available dd properties:
  * exists - true if val is defined
  * set function(value) - sets the value if the value exists
  * func - the value if the value is a function, or else a dummy function
+
+Version locking is recommended during release 0.0.x
