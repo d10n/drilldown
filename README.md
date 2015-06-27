@@ -1,8 +1,13 @@
 drilldown.js
 ============
-`var dd = require('drilldown');`
 
 Safely accesses deep properties of objects.
+
+```JavaScript
+// npm install drilldown
+// bower install drilldown
+var dd = require('drilldown');
+```
 
 Ever run into this?
 ```JavaScript
