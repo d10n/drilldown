@@ -124,12 +124,10 @@ describe('drilldown', function() {
         expect(example.person.y).to.equal(4);
         expect(exampleWalk.invoke.calledWith(3, 4)).to.be.true();
     });
-    xit('should call the stub function for functions which do not exist', function() {
+    it('should call the stub function for functions which do not exist', function() {
         var exampleBar = dd(example)('bar')('zzzz');
-        sinon.spy(console, 'log');  // FIXME spying on console.log interferes with must
-        var arg = 'string argument';
-        exampleBar.invoke(arg);
-        expect(console.log.called).to.be.true();
-        console.log.restore();
+        var noopFunctionString = 'function(){}';
+        var invokeFunctionString = exampleBar.invoke.toString().replace(/\s/g, '');
+        expect(invokeFunctionString).to.equal(noopFunctionString);
     });
 });
