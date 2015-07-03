@@ -84,17 +84,7 @@ function dd(object, _context, _key) {
     };
     drill.invoke = isFunction(object) ? object.bind(_context) : console.log.bind(null, 'dd', object);
 
-    drill.set = deprecate(drill.update, 'set', 'update');
-    drill.func = deprecate(drill.invoke, 'func', 'invoke');
-
     return drill;
-}
-
-function deprecate(func, oldName, newName) {
-    return function() {
-        console.warn(oldName + ' is deprecated. Please use ' + newName);
-        return func.apply(this, arguments);
-    }
 }
 
 module.exports = dd;
