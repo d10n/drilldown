@@ -45,7 +45,7 @@ dd(foo)('abc')('addOne').invoke(5); returns 6
 dd(foo)('zzz')('aaa').invoke(5); returns undefined
 ```
 
-Set values if the original value exists:
+Update values if the original value exists:
 ```JavaScript
 var foo = {abc: {def: {ghi: 'jkl'}}};
 var newValue = {ping: 'pong'};
@@ -59,10 +59,18 @@ dd(foo)('abc')('zzz').update(5);
 //  - undefined is returned
 ```
 
+Set values even if the path drilled to does not exist:
+```JavaScript
+var foo = {abc: {}};
+dd(foo)('abc')('def')('ghi').set('jkl');
+//  - foo is now {abc: {def: {ghi: 'jkl}}}
+```
+
 To prevent confusion, only own properties are drilled into.
 
 Available dd properties:
  * val - the value
  * exists - true if val is defined
  * update function(value) - sets the value if the value exists
+ * set function(value) - sets the value at any path
  * invoke - the value if the value is a function, or else a dummy function
