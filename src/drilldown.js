@@ -119,7 +119,8 @@ function dd(object, _context, _key, _root, _rootPath) {
             return value;
         }
     };
-    drill.invoke = isFunction(object) ? object.bind(_context) : console.log.bind(null, 'dd', object);
+    drill.invoke = isFunction(object) ? object.bind(_context) : function () {
+    };
 
     return drill;
 }
