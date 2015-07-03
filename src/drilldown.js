@@ -6,11 +6,13 @@ var isFunction = (function() {
     // Thanks to underscore for identifying typeof bugs
     var regexTypeofIsCorrect = typeof /./ !== 'function';
     var int8ArrayTypeofIsCorrect = typeof Int8Array !== 'object';
+    /* istanbul ignore else */
     if (regexTypeofIsCorrect && int8ArrayTypeofIsCorrect) {
         return function(obj) {
             return typeof obj === 'function' || false;
         };
     }
+    /* istanbul ignore next */
     return function(obj) {
         return Object.prototype.toString.call(obj) === '[object Function]';
     };
