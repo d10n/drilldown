@@ -1,7 +1,7 @@
 {
   "name": "drilldown",
   "main": "dist/drilldown.js",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "homepage": "https://github.com/d10n/drilldown",
   "description": "Safely accesses deeply nested properties of objects",
   "moduleType": [
