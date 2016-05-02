@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/d10n/drilldown",
   "devDependencies": {
-    "browserify": "^10.2.4",
+    "browserify": "^13.0.0",
     "gulp": "^3.9.0",
     "gulp-istanbul": "^0.10.0",
     "gulp-mocha": "^2.1.2",
