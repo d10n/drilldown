@@ -1,6 +1,6 @@
 {
   "name": "drilldown",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Safely accesses deeply nested properties of objects",
   "main": "index.js",
   "scripts": {
