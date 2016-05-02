@@ -131,6 +131,13 @@ describe('drilldown', function() {
         exampleBar.invoke(arg);
         expect(exampleBar.val.calledWith(arg)).to.be.true();
     });
+    it('should preserve custom .bind properties of functions', function() {
+        example.bar.bind = sinon.spy();
+        var exampleBar = dd(example)('bar');
+        var bindArgument = 'argument for bind';
+        exampleBar.val.bind(bindArgument);
+        expect(exampleBar.val.bind.calledWith(bindArgument)).to.be.true();
+    });
     it('should call the stub function for functions which do not exist', function() {
         var exampleBar = dd(example)('bar')('zzzz');
         var noopFunctionString = 'function(){}';
