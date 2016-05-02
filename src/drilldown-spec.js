@@ -124,6 +124,13 @@ describe('drilldown', function() {
         expect(example.person.y).to.equal(4);
         expect(exampleWalk.invoke.calledWith(3, 4)).to.be.true();
     });
+    it('should call functions which exist with .bind properties', function() {
+        example.bar.bind = sinon.spy();
+        var exampleBar = dd(example)('bar');
+        var arg = 'string argument';
+        exampleBar.invoke(arg);
+        expect(exampleBar.val.calledWith(arg)).to.be.true();
+    });
     it('should call the stub function for functions which do not exist', function() {
         var exampleBar = dd(example)('bar')('zzzz');
         var noopFunctionString = 'function(){}';
