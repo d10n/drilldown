@@ -1,7 +1,7 @@
 Change Log
 ==========
 
-## [0.1.0] - 2014-07-03
+## [0.1.0] - 2015-07-03
 ### Added
  * `set` now creates missing parents to the path of the variable being set
 
@@ -12,18 +12,18 @@ Change Log
  * Deprecation warnings and deprecated functions
 
 
-## [0.0.4] - 2014-06-27
+## [0.0.4] - 2015-06-27
 ### Changed
  * I forgot to bump the bower version before!
 
 
-## [0.0.3] - 2014-06-27
+## [0.0.3] - 2015-06-27
 ### Added
  * Bring `set` back with a deprecation warning
  * Bring `func` back with a deprecation warning
 
 
-## [0.0.2] - 2014-06-27
+## [0.0.2] - 2015-06-27
 ### Added
  * Coverage gulp task
 
@@ -33,7 +33,7 @@ Change Log
  * You can now only drill into own properties
 
 
-## [0.0.1] - 2014-06-23
+## [0.0.1] - 2015-06-23
 Initial release
 
 [unreleased]: https://github.com/d10n/drilldown/compare/v0.1.0...HEAD
