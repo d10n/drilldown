@@ -1,6 +1,11 @@
 Change Log
 ==========
 
+## [0.1.1] - 2016-05-01
+### Changed
+ * Drilling to functions with custom `.bind` properties now works
+
+
 ## [0.1.0] - 2015-07-03
 ### Added
  * `set` now creates missing parents to the path of the variable being set
@@ -36,7 +41,8 @@ Change Log
 ## [0.0.1] - 2015-06-23
 Initial release
 
-[unreleased]: https://github.com/d10n/drilldown/compare/v0.1.0...HEAD
+[unreleased]: https://github.com/d10n/drilldown/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/d10n/drilldown/compare/v0.1.0...0.1.1
 [0.1.0]: https://github.com/d10n/drilldown/compare/v0.0.4...v0.1.0
 [0.0.4]: https://github.com/d10n/drilldown/compare/v0.0.3...v0.0.4
 [0.0.3]: https://github.com/d10n/drilldown/compare/v0.0.2...v0.0.3
