@@ -35,7 +35,7 @@ dd(foo)('abc').exists
 Works with arrays too:
 ```JavaScript
 var foo = {abc: [ {bar: 'def'},{bar: 'ghi'} ]};
-dd(foo)('abc')(0)('bar') is 'def'
+dd(foo)('abc')(0)('bar').val is 'def'
 ```
 
 Safely call functions:
