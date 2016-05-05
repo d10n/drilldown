@@ -74,3 +74,10 @@ Available dd properties:
  * update function(value) - sets the value if the value exists
  * set function(value) - sets the value at any path
  * invoke - the value if the value is a function, or else a dummy function
+
+Alternatives:
+ * lodash or underscore: `_.get(foo, 'abc.def.ghi')`
+ * nevernull: `nn(foo)('abc.def')('ghi').val`
+ * vanilla es5: `(((foo || {}).abc || {}).def || {}).ghi`
+
+Drilldown works with dots and brackets in property names, which may be useful for drilling with user input.
